@@ -19,7 +19,7 @@ import { CardWrapper } from '@/components/auth/card-wrapper';
 import { Button } from '@/components/ui/button';
 import { FormError } from '@/components/form-error';
 import { FormSuccess } from '@/components/form-success';
-//import { register } from "@/actions/register";
+import { register } from '@/actions/register';
 
 export const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>('');
@@ -31,6 +31,7 @@ export const RegisterForm = () => {
     defaultValues: {
       email: '',
       password: '',
+      phoneNumber: '',
       name: '',
     },
   });
@@ -41,11 +42,10 @@ export const RegisterForm = () => {
 
     startTransition(() => {
       console.log(values);
-      // register(values)
-      //   .then((data) => {
-      //     setError(data.error);
-      //     setSuccess(data.success);
-      //   });
+      register(values).then((data) => {
+        setError(data.error);
+        setSuccess(data.success);
+      });
     });
   };
 
@@ -91,6 +91,24 @@ export const RegisterForm = () => {
                       disabled={isPending}
                       placeholder="john.doe@example.com"
                       type="email"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="phoneNumber"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      placeholder="254700000000"
+                      type="tel"
                     />
                   </FormControl>
                   <FormMessage />

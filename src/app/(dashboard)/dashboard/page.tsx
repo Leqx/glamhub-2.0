@@ -1,4 +1,5 @@
 //import { cards } from '@/lib/data';
+import { RoleGate } from '@/components/auth/role-gate';
 import Card from '@/components/dashboard//card/card';
 import Chart from '@/components/dashboard//chart/chart';
 import styles from '@/components/dashboard//dashboard.module.css';

@@ -6,6 +6,7 @@ import { auth } from 'auth';
 import { Toaster } from '@/components/ui/sonner';
 import { ThemeProvider } from '@/providers/theme';
 import { ReduxProvider } from '@/providers/client';
+import { QueryProvider } from '@/providers/query';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,7 +33,7 @@ export default async function RootLayout({
               disableTransitionOnChange
             >
               <Toaster />
-              {children}
+              <QueryProvider>{children}</QueryProvider>
             </ThemeProvider>
           </ReduxProvider>
         </body>
