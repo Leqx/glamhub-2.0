@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  postgresql:
+    image: postgres:13
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=glamhub_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+
+volumes:
+  postgresql_data:
