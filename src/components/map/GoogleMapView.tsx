@@ -30,7 +30,7 @@ function GoogleMapView({ businessList }: any) {
   return (
     <div>
       <LoadScript
-        googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
+        googleMapsApiKey={`${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`}
       >
         <GoogleMap
           mapContainerStyle={containerStyle}
